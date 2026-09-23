@@ -21,6 +21,7 @@ in
   home.stateVersion = "26.05";
   home.packages = with pkgs; [
     htop
+    ranger
     tmux
     uv
     python311
@@ -37,6 +38,13 @@ in
     shellAliases = {
       btw = "echo I use nixos, btw";
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
+      gb = "git branch";
+      gs = "git status --short";
+      gl = "git log --all --decorate --oneline --graph";
+      ga = "git add";
+      gd = "git diff";
+      gdc = "git diff --cached";
+      r = ". ranger";
     };
   };
 }
