@@ -22,6 +22,8 @@ in
   home.packages = with pkgs; [
     htop
     tmux
+    uv
+    python311
   ];
   home.sessionPath = [ "$HOME/.local/bin" ];
   xdg.configFile = builtins.mapAttrs (name: subpath: {
