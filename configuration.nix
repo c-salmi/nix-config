@@ -18,6 +18,14 @@
   programs.niri.enable = true;
   services.displayManager.ly.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+  };
+
   users.users.chadi = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];

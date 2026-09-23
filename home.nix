@@ -24,6 +24,7 @@ in
     tmux
     uv
     python311
+    lm_sensors
   ];
   home.sessionPath = [ "$HOME/.local/bin" ];
   xdg.configFile = builtins.mapAttrs (name: subpath: {
