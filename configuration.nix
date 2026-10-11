@@ -13,6 +13,11 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  services.openssh.enable = true;
+
+  # USB permissions for RealSense cameras (viewer lives in the dev shell).
+  services.udev.packages = [ pkgs.librealsense ];
+
   time.timeZone = "Europe/Amsterdam";
 
   programs.niri.enable = true;
@@ -25,6 +30,7 @@
     modesetting.enable = true;
     open = true;
   };
+  hardware.bluetooth.enable = true;
 
   users.users.chadi = {
     isNormalUser = true;
@@ -45,6 +51,7 @@
     fuzzel
     xwayland-satellite
     nodejs_24
+    bluez
   ];
 
   fonts.packages = with pkgs; [
