@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs-unstable, ... }:
 
 {
   imports =
@@ -55,6 +55,20 @@
 
   programs.firefox.enable = true;
   programs.steam.enable = true;
+
+  services.sunshine = {
+    enable = true;
+    # Use unstable for timely Sunshine security updates.
+    package = (import nixpkgs-unstable {
+      system = pkgs.stdenv.hostPlatform.system;
+      config.allowUnfree = true;
+    }).sunshine;
+    autoStart = true;
+    openFirewall = true;
+    # Niri/Wayland needs privileged DRM/KMS screen capture.
+    capSysAdmin = true;
+    # Keep settings/apps editable in the web UI; encoding is auto-detected.
+  };
 
   environment.systemPackages = with pkgs; [
     vim
