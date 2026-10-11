@@ -52,6 +52,12 @@ window-rule {
     clip-to-geometry true
 }
 
+// Open Steam Big Picture fullscreen without affecting normal Steam windows.
+window-rule {
+    match app-id="^steam$" title="^Steam Big Picture Mode$"
+    open-fullscreen true
+}
+
 binds {
     // Apps and session
     Mod+Return { spawn "alacritty"; }
