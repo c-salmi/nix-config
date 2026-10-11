@@ -18,6 +18,15 @@
   # USB permissions for RealSense cameras (viewer lives in the dev shell).
   services.udev.packages = [ pkgs.librealsense ];
 
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-vulkan;
+    environmentVariables = {
+      OLLAMA_CONTEXT_LENGTH = "8192";
+      OLLAMA_NO_CLOUD = "1";
+    };
+  };
+
   time.timeZone = "Europe/Amsterdam";
 
   programs.niri.enable = true;
