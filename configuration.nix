@@ -32,9 +32,13 @@
   };
   hardware.bluetooth.enable = true;
 
+  virtualisation.docker.enable = true;
+  # Generates the CDI spec for `docker run --device nvidia.com/gpu=all`.
+  hardware.nvidia-container-toolkit.enable = true;
+
   users.users.chadi = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
     ];
