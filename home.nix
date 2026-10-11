@@ -52,6 +52,19 @@ in
   programs.bash = {
     enable = true;
     bashrcExtra = builtins.readFile ./config/bash/bashrc;
+    initExtra = ''
+      unalias r 2>/dev/null
+      r() {
+        local tmp dir
+        tmp=$(mktemp) || return
+        command ranger --choosedir="$tmp" "$@"
+        if [ -s "$tmp" ]; then
+          IFS= read -r dir < "$tmp"
+          [ -d "$dir" ] && cd -- "$dir"
+        fi
+        rm -f -- "$tmp"
+      }
+    '';
     shellAliases = {
       btw = "echo I use nixos, btw";
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
@@ -61,7 +74,6 @@ in
       ga = "git add";
       gd = "git diff";
       gdc = "git diff --cached";
-      r = ". ranger";
     };
   };
 }
