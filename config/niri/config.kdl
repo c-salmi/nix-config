@@ -45,6 +45,8 @@ layout {
 
 prefer-no-csd
 
+spawn-at-startup "noctalia"
+
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true

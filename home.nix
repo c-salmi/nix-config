@@ -19,6 +19,7 @@ in
     };
   };
   home.stateVersion = "26.05";
+  programs.noctalia.enable = true;
   home.packages = with pkgs; [
     htop
     ranger
