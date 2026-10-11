@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
 
 let
+  unstable = import nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   createSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
@@ -21,14 +25,26 @@ in
   home.stateVersion = "26.05";
   programs.noctalia.enable = true;
   home.packages = with pkgs; [
+    gh
     htop
     ranger
     tmux
+    tmuxp
     uv
-    python311
+    zenoh
+    git-lfs
+    gcc
+    linuxHeaders
+    stdenv.cc.cc.lib
+    zlib
+    vscode
+    unstable.code-cursor
     lm_sensors
   ];
   home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionVariables = {
+    CPATH = "${pkgs.linuxHeaders}/include";
+  };
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = createSymlink "${dotfiles}/${subpath}";
     recursive = true;
