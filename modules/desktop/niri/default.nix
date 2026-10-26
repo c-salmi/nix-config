@@ -19,7 +19,7 @@ in
   flake.modules.homeManager.niri = { config, ... }: {
     xdg.configFile.niri = {
       source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nixos-dotfiles/modules/desktop/niri";
+        "${config.home.homeDirectory}/nix-config/modules/desktop/niri";
       recursive = true;
     };
   };

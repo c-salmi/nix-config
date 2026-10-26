@@ -16,7 +16,7 @@ in
     # Out-of-store symlink, so tmux.conf edits apply without a rebuild.
     xdg.configFile.tmux = {
       source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nixos-dotfiles/modules/shell/tmux";
+        "${config.home.homeDirectory}/nix-config/modules/shell/tmux";
       recursive = true;
     };
   };

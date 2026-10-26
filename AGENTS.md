@@ -4,7 +4,7 @@ This is Chadi's personal NixOS configuration.
 
 ## Setup
 
-- Configuration source: `~/nixos-dotfiles`, not `/etc/nixos`.
+- Configuration source: `~/nix-config`, not `/etc/nixos`.
 - Flake output: `nixosConfigurations.nixos-btw`; system hostname: `nixos`.
 - Platform: `x86_64-linux`; user: `chadi`; timezone: `Europe/Amsterdam`.
 - Inputs: NixOS `nixos-26.05` and Home Manager `release-26.05`, with Home Manager following the same Nixpkgs input.
@@ -33,7 +33,7 @@ This is Chadi's personal NixOS configuration.
 
 ## Apply and check
 
-Run from `~/nixos-dotfiles`:
+Run from `~/nix-config`:
 
 ```bash
 # Build without activating, when a check is useful:

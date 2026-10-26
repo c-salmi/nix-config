@@ -14,7 +14,7 @@ in
       bashrcExtra = builtins.readFile ./bashrc;
       shellAliases = {
         btw = "echo I use nixos, btw";
-        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
+        rebuild = "sudo nixos-rebuild switch --flake ~/nix-config#nixos-btw";
       };
     };
   };
