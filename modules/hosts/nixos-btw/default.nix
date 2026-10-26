@@ -9,7 +9,7 @@
         system.stateVersion = "26.05";
       }
 
-      nix boot networking locale ssh base-packages
+      nix systemd-boot networkmanager locale ssh base-packages
       chadi
       nvidia bluetooth
       niri noctalia fonts firefox apps
