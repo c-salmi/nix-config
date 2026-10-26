@@ -40,6 +40,7 @@ in
     vscode
     unstable.code-cursor
     lm_sensors
+    obsidian
   ];
   home.sessionPath = [ "$HOME/.local/bin" ];
   home.sessionVariables = {
