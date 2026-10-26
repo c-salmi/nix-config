@@ -1,5 +1,5 @@
 {
-  description = "NixOS Workstation";
+  description = "Chadi's NixOS configuration";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -8,25 +8,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia.url = "github:noctalia-dev/noctalia";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
   };
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, noctalia, ... }: {
-    nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit nixpkgs-unstable; };
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit nixpkgs-unstable; };
-            sharedModules = [ noctalia.homeModules.default ];
-            users.chadi = import ./home.nix;
-            backupFileExtension = "backup";
-          };
-        }
-      ];
-    };
-  };
+  # Every .nix file under modules/ is a flake-parts module; files starting with _ are skipped.
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
