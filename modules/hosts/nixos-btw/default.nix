@@ -6,6 +6,7 @@
       ./_hardware-configuration.nix
       {
         networking.hostName = "nixos";
+        networking.interfaces.enp5s0.wakeOnLan.enable = true;
         system.stateVersion = "26.05";
       }
 
