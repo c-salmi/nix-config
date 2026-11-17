@@ -12,7 +12,7 @@
       nix systemd-boot networkmanager locale ssh base-packages
       chadi
       nvidia bluetooth
-      niri noctalia fonts firefox apps
+      niri noctalia fonts firefox apps recording
       ollama docker sunshine steam
       toolchain node-pi editors nvim python git-tools robotics
       bash tmux ranger cli-tools

@@ -116,4 +116,5 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Mod+Shift+R hotkey-overlay-title="Start/stop screen recording" { spawn "screenrecord-toggle"; }
 }
