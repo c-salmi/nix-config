@@ -12,6 +12,7 @@ in
     home.packages = with pkgs; [
       htop
       lm_sensors
+      sox # audio capture for Claude Code voice mode
     ];
   };
 }
