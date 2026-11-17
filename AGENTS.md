@@ -17,7 +17,7 @@ This is Chadi's personal NixOS configuration.
 ## Desktop and tools
 
 - Niri compositor with the Ly login manager; Alacritty terminal, Fuzzel launcher and Firefox browser.
-- Niri configuration lives at `~/.config/niri/config.kdl`, an out-of-store symlink to `modules/desktop/niri/config.kdl` in this repo; tmux config is linked the same way from `modules/shell/tmux/`.
+- Niri configuration lives at `~/.config/niri/config.kdl`, an out-of-store symlink to `modules/desktop/niri/config.kdl` in this repo; tmux config is linked the same way from `modules/shell/tmux/`, and `~/.config/nvim` (LazyVim) from `modules/dev/nvim/config/`.
 - Pi coding agent is intentionally managed through npm for frequent upstream updates, rather than pinned to Nixpkgs.
 - Node.js 24 is managed through Nix. npm's user prefix is `~/.local`, with `~/.local/bin` on PATH through `home.sessionPath`.
 - Pi install/update: `npm install -g --prefix "$HOME/.local" --ignore-scripts @earendil-works/pi-coding-agent@latest`.

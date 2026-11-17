@@ -14,7 +14,7 @@
       nvidia bluetooth
       niri noctalia fonts firefox apps
       ollama docker sunshine steam
-      toolchain node-pi editors python git-tools robotics
+      toolchain node-pi editors nvim python git-tools robotics
       bash tmux ranger cli-tools
     ];
   };
